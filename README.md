@@ -1,7 +1,7 @@
 # FlowDroid-CallGraph
 Dump the call graph by the static analysis of FlowDroid [https://github.com/secure-software-engineering/soot-infoflow-android/wikihttps://github.com/secure-software-engineering/soot-infoflow-android/wiki]
 
-The output is organized as Map<Node, Set<Node>>, where key is the source node and value is the set of neighbors 
+The output is organized as Map<Node, Set <Node>>, where key is the source node and value is the set of neighbors 
 
 Generate the jar file from eclipse and execute:
 
