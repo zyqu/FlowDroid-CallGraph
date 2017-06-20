@@ -25,9 +25,11 @@ import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 
+//dump the call graph from FlowDroid
 public class CFG {
 	public CFG(){}
 	
+	//output the call graph to JSON formate
 	private static String dumpCallGraph(CallGraph cg){
 		Iterator<Edge> itr = cg.iterator();
 		Map<String, Set<String>> map = new HashMap<String, Set<String>>();
@@ -115,6 +117,8 @@ public class CFG {
 		PackManager.v().runPacks();
 		System.out.println("Call graph size: "+ Scene.v().getCallGraph().size());		
 		String res = dumpCallGraph(Scene.v().getCallGraph());
+
+		//where the JSON file is outputed 
 		Path outputPath = Paths.get(curDir.toString(), "static-cfg-"+ apkFile.getName().substring(0, apkFile.getName().lastIndexOf(".")));
 		
 		File out = outputPath.toFile();
@@ -127,7 +131,6 @@ public class CFG {
 			fw.flush();
 			fw.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Dump to file: "+outputPath);
